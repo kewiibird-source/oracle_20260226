@@ -10,6 +10,10 @@ FROM PROFESSOR;
 -- NOT NULL 일때 => 100으로 / NULL 일때 => 0으로 변경
 SELECT NAME, BONUS, NVL2(BONUS, 100, 0)
 FROM PROFESSOR;
+-- NVL(TO_CHAR(AVG(ENR_GRADE)), '점수 없음')
+--NVL은!! 비교할 데이터들이 동일한 데이터타입이여야 함
+--TO_CHAR으로 숫자를 문자형으로 변형해줌
+
 
 -- DECODE : 자바의 조건문(IF)
 -- DECODE(컬럼명, '조건값', '조건이랑 같을 때 출력', '조건이랑 다를 때 출력')

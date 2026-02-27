@@ -1,0 +1,23 @@
+SELECT *
+FROM PROFESSOR;
+
+
+SELECT 
+    --EMAIL, 
+    --INSTR(EMAIL, '@'),
+    --SUBSTR(EMAIL, INSTR(EMAIL, '@')),
+    --LENGTH(EMAIL),
+    LPAD(SUBSTR(EMAIL, INSTR(EMAIL, '@')),LENGTH(EMAIL),'*'),
+    --SUBSTR(EMAIL, INSTR(EMAIL, '@')+1),
+    --INSTR(SUBSTR(EMAIL, INSTR(EMAIL, '@')+1), '.'),
+    SUBSTR(SUBSTR(EMAIL, INSTR(EMAIL, '@')+1), 1, INSTR(SUBSTR(EMAIL, INSTR(EMAIL, '@')+1), '.')-1)
+FROM PROFESSOR;
+
+
+SELECT
+    EMAIL,
+    RPAD('*',INSTR(EMAIL, '@')-1, '*')
+    || '@' ||
+    RPAD('*', INSTR(EMAIL, '.') - INSTR(EMAIL, '@') -1, '*')
+    || SUBSTR(EMAIL, INSTR(EMAIL, '.')) AS 메일
+FROM PROFESSOR;
