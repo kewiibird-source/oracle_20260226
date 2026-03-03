@@ -49,7 +49,10 @@ FROM STUDENT S
 INNER JOIN ENROL E ON S.STU_NO = E.STU_NO
 GROUP BY STU_DEPT;
 
-
+--------------------------------------------------------------
+SELECT S.*, ENR_GRADE
+FROM STUDENT S
+INNER JOIN ENROL E ON S.STU_NO = E.STU_NO
 
 
 
