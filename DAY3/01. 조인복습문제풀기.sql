@@ -73,19 +73,14 @@ WHERE SUM_CNT > (
 );
 
 -- 4. 시험을 2번이상 본 학생의 학번, 이름, 시험본 횟수 출력                                                                                          
-SELECT S.STU_NO, STU_NAME, COUNT(*)                                                                                                                                                                                                                                                                                                                                    )
-FROM STUDENT S
+--SELECT S.STU_NO, STU_NAME, COUNT(*)                                                                                                                                                                                                                                                                                                                                    )
+--FROM STUDENT S
+--INNER JOIN ENROL E ON S.STU_NO = E.STU_NO
+--GROUP BY S.STU_NO, STU_NAME
+--HAVING COUNT(*) >= 2;
+
+SELECT S.STU_NO, STU_NAME, COUNT(*)
+FROM STUDENT S 
 INNER JOIN ENROL E ON S.STU_NO = E.STU_NO
 GROUP BY S.STU_NO, STU_NAME
 HAVING COUNT(*) >= 2;
------------------------------------------------------------------
--- 테이블추가
-SELECT * FROM BOOK;
-SELECT * FROM ORDERS;
-SELECT * FROM CUSTOMER;
-
--- 1. 구매자 이름, 책 이름, 구매일 출력
-SELECT C.NAME, BOOKNAME, ORDERDATE
-FROM CUSTOMER C
-INNER JOIN ORDERS O ON C.CUSTID = O.CUSTID
-INNER JOIN BOOK B ON O.BOOKID = B.BOOKID;
